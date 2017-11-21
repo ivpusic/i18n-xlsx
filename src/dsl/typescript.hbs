@@ -1,0 +1,29 @@
+{{#each data.sheets as |value key|}}
+interface I{{key}} {
+  {{#each value.codes as |value|}}
+  {{value}}: string;
+  {{/each}}
+}
+{{/each}}
+
+interface ISheets {
+{{#each data.sheets as |value key|}}
+  {{key}}: I{{key}};
+{{/each}}
+}
+
+const all: { [key: string]: ISheets } = {
+  {{#each data.languages as |language|}}
+  {{language}}: {
+    {{#each ../data.sheets as |sheetValues sheetName|}}
+    {{sheetName}}: {
+    {{#each (lookup sheetValues.map language) as |translation code|}}
+      {{code}}: '{{translation}}',
+    {{/each}}
+    },
+    {{/each}}
+  },
+  {{/each}}
+};
+
+export default all;

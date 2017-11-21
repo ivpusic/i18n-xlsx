@@ -1,0 +1,43 @@
+{
+  "name": "i18n-xlsx",
+  "version": "0.2.0",
+  "description": "Typesafe i18n",
+  "main": "dist/transpiler.js",
+  "scripts": {
+    "build": "tsc && cp -rf src/dsl dist/",
+    "bin": "npm run build && dist/bin/i18n-xlsx.js",
+    "test": "mocha --exit --require ts-node/register test/*.ts",
+    "prepublish": "npm run build"
+  },
+  "bin": {
+    "i18n-xlsx": "dist/bin/i18n-xlsx.js"
+  },
+  "keywords": [
+    "i18n",
+    "excel",
+    "xlsx",
+    "typesafe",
+    "golang",
+    "typescript"
+  ],
+  "author": "Ivan Pusic",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^2.11.0",
+    "handlebars": "^4.0.11",
+    "xlsx": "^0.11.10"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.0.5",
+    "@types/commander": "^2.11.0",
+    "@types/handlebars": "^4.0.36",
+    "@types/mocha": "^2.2.44",
+    "@types/node": "^8.0.53",
+    "@types/xlsx": "^0.0.36",
+    "chai": "^4.1.2",
+    "mocha": "^4.0.1",
+    "ts-node": "^3.3.0",
+    "tslint": "^5.8.0",
+    "typescript": "^2.6.1"
+  }
+}
