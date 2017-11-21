@@ -5,7 +5,6 @@
   "main": "dist/transpiler.js",
   "scripts": {
     "build": "tsc && cp -rf src/dsl dist/",
-    "bin": "npm run build && dist/bin/i18n-xlsx.js",
     "test": "mocha --exit --require ts-node/register test/*.ts",
     "prepublish": "npm run build"
   },
