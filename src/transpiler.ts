@@ -1,5 +1,6 @@
 import * as xlsx from 'xlsx';
 import * as hbs from 'handlebars';
+import * as hbsHelpers from 'handlebars-helpers';
 import * as fs from 'fs';
 import * as path from 'path';
 
@@ -21,6 +22,12 @@ export interface ITypescriptOptions {
 }
 
 export default class Transpiler {
+
+  constructor() {
+    hbsHelpers.string({
+      handlebars: hbs
+    });
+  }
 
   public supportedLanguages = [
     'typescript',

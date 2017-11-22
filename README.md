@@ -37,25 +37,25 @@ Check `i18n.ts` file. It will have following output.
 
 ```typescript
 interface ISheet1 {
-  TEST_KEY1: string;
-  TEST_KEY2: string;
+  testKey1: string;
+  testKey2: string;
 }
 
 interface ISheets {
-  Sheet1: ISheet1;
+  sheet1: ISheet1;
 }
 
 const all: { [key: string]: ISheets } = {
   hr: {
-    Sheet1: {
-      TEST_KEY1: 'vrijednost 1',
-      TEST_KEY2: 'vrijednost 2',
+    sheet1: {
+      testKey1: 'vrijednost 1',
+      testKey2: 'vrijednost 2',
     },
   },
   en: {
-    Sheet1: {
-      TEST_KEY1: 'value 1',
-      TEST_KEY2: 'value 2',
+    sheet1: {
+      testKey1: 'value 1',
+      testKey2: 'value 2',
     },
   },
 };

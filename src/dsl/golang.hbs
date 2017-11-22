@@ -1,16 +1,16 @@
 package {{options.module}}
 
 {{#each data.sheets as |value key|}}
-type {{key}} struct {
+type {{pascalcase key}} struct {
   {{#each value.codes as |value|}}
-  {{value}} string
+  {{pascalcase value}} string
   {{/each}}
 }
 {{/each}}
 
 type Sheets struct {
 {{#each data.sheets as |value key|}}
-  {{key}} {{key}}
+  {{pascalcase key}} {{pascalcase key}}
 {{/each}}
 }
 
@@ -18,9 +18,9 @@ var All = map[string]Sheets{
   {{#each data.languages as |language|}}
   "{{language}}": {
     {{#each ../data.sheets as |sheetValues sheetName|}}
-    {{sheetName}}: {{sheetName}}{
+    {{pascalcase sheetName}}: {{pascalcase sheetName}}{
     {{#each (lookup sheetValues.map language) as |translation code|}}
-      {{code}}: "{{translation}}",
+      {{pascalcase code}}: "{{translation}}",
     {{/each}}
     },
     {{/each}}

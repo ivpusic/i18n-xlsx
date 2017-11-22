@@ -1,14 +1,14 @@
 {{#each data.sheets as |value key|}}
-interface I{{key}} {
+interface I{{pascalcase key}} {
   {{#each value.codes as |value|}}
-  {{value}}: string;
+  {{camelcase value}}: string;
   {{/each}}
 }
 {{/each}}
 
 interface ISheets {
 {{#each data.sheets as |value key|}}
-  {{key}}: I{{key}};
+  {{camelcase key}}: I{{pascalcase key}};
 {{/each}}
 }
 
@@ -16,9 +16,9 @@ const all: { [key: string]: ISheets } = {
   {{#each data.languages as |language|}}
   {{language}}: {
     {{#each ../data.sheets as |sheetValues sheetName|}}
-    {{sheetName}}: {
+    {{camelcase sheetName}}: {
     {{#each (lookup sheetValues.map language) as |translation code|}}
-      {{code}}: '{{translation}}',
+      {{camelcase code}}: '{{translation}}',
     {{/each}}
     },
     {{/each}}
