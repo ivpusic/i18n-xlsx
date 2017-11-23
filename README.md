@@ -50,7 +50,7 @@ enum Language {
   en = 'en',
 }
 
-const all: { [key in string]: ISheets } = {
+const all: { [key in Language]: ISheets } = {
   hr: {
     sheet1: {
       testKey1: 'vrijednost 1',
