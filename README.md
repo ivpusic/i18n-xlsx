@@ -45,7 +45,12 @@ interface ISheets {
   sheet1: ISheet1;
 }
 
-const all: { [key: string]: ISheets } = {
+enum Language {
+  hr = 'hr',
+  en = 'en',
+}
+
+const all: { [key in string]: ISheets } = {
   hr: {
     sheet1: {
       testKey1: 'vrijednost 1',
@@ -68,7 +73,7 @@ export default all;
 ```typescript
 import i18n from './path/to/i18n.ts';
 
-console.log(i18n.en.Sheet1.TEST_KEY1); // typesafe + intellisense
+console.log(i18n.en.sheet1.testKey1); // typesafe + intellisense
 ```
 
 ## License

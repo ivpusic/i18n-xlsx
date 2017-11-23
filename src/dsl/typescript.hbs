@@ -12,7 +12,13 @@ interface ISheets {
 {{/each}}
 }
 
-const all: { [key: string]: ISheets } = {
+enum Language {
+  {{#each data.languages as |language|}}
+  {{language}} = '{{language}}',
+  {{/each}}
+}
+
+const all: { [key in Language]: ISheets } = {
   {{#each data.languages as |language|}}
   {{language}}: {
     {{#each ../data.sheets as |sheetValues sheetName|}}
